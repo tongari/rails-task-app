@@ -2,7 +2,7 @@
 <ul>
   <% @projects.each do |project| %>
   <li>
-    <%= link_to project.title, project_path(project.id) %>
+    <%= link_to project.title, project_path(project.id) %>(<%= project.tasks.unfinished.count %>/<%= project.tasks.count %>)
     <%= link_to '[Edit]', edit_project_path(project.id) %>
     <%= link_to '[Delete]', project_path(project.id), method: :delete, data: {
       confirm: 'delete ok?'
@@ -11,4 +11,3 @@
   <% end %>
 </ul>
 <p><%= link_to 'Add New', new_project_path %></p>
-º
